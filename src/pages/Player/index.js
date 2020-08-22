@@ -1,5 +1,4 @@
-import React from "react";
-import { Slider } from 'react-native';
+import React, { useState } from "react";
 
 import { ChevronIcon } from "../../components/icons/Chevron";
 import { MoreVertIcon } from "../../components/icons/MoreVert";
@@ -29,6 +28,8 @@ import {
 } from "./styles";
 
 const Player = () => {
+  const [seconds, setSeconds] = useState(0);
+
   return (
     <Background>
       <TopBar>
@@ -61,15 +62,18 @@ const Player = () => {
 
           <PlayerControls>
             <ControlSlider>
-              {/* <AudioSlider
-              minimumValue={0}
-              maximumValue={0}
-              thumbTintColor="#FFFFFF"
-              maximumTrackTintColor="#777777"
-              maximumTrackTintColor="#1DD65F"
-              value={40}
-            /> */}
-              <ControlSliderCurrentTime>0:01</ControlSliderCurrentTime>
+              <AudioSlider
+                minimumValue={0}
+                maximumValue={100}
+                thumbTintColor="#FFFFFF"
+                maximumTrackTintColor="#777777"
+                maximumTrackTintColor="#1DD65F"
+                value={seconds}
+                onValueChange={(value) => {
+                  setSeconds(value);
+                }}
+              />
+              <ControlSliderCurrentTime>{seconds}</ControlSliderCurrentTime>
               <ControlSliderTotalTime>52:07</ControlSliderTotalTime>
             </ControlSlider>
 

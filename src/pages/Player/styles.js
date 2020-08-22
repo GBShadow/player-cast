@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Slider } from 'react-native';
 
 export const TopBar = styled.View`
   flex-direction: row;
@@ -74,16 +75,17 @@ export const ControlSlider = styled.View`
   flex-basis: 100%;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const ControlSliderCurrentTime = styled.Text`
-  color: #BBB
+  color: #BBB;
 `;
 
 export const ControlSliderTotalTime = styled.Text`
-  color: #BBB
+  color: #BBB;
 `;
 
-export const AudioSlider = styled.View`
-  
+export const AudioSlider = styled(Slider)`
+  flex-basis: 100%;
 `;
